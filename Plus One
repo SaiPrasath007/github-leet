@@ -1,0 +1,44 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* plusOne(int* digits, int digitsize, int* returnSize) 
+{
+    int* result=(int*) malloc((digitsize+1)*sizeof(int));
+    int x,i,index;
+    x=digits[digitsize-1]+1;
+    if(x>9)
+    {
+        result[digitsize]=x;
+        for(i=digitsize-1;i>=0;i--)
+        {
+            result[i]=digits[i]+(result[i+1]/10);
+        }
+        for(i=digitsize;i>0;i--)
+        {
+            result[i]=result[i]%10;
+        }
+        if(result[0]>9)
+        {
+            *returnSize=digitsize+1;
+            result[0]=result[0]/10;
+        }
+        else
+        {   *returnSize=digitsize;
+            index=digitsize-1;
+            for(i = index; i < digitsize; i++)
+                result[i] = result[i+1];
+        }
+
+    }
+    else
+    {
+        *returnSize=digitsize;
+        result[digitsize]=x;
+        index=digitsize-1;
+        for(i = index; i < digitsize; i++)
+            result[i] = result[i+1];
+        for(i=digitsize-2;i>=0;i--)
+            result[i]=digits[i];
+    }
+    return result;
+}
