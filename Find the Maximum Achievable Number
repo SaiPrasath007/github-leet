@@ -1,0 +1,10 @@
+int theMaximumAchievableX(int num, int t)
+{
+    int s=t;
+    while(t!=0)
+    {
+        num++;
+        t--;
+    }
+    return num+s;
+}
