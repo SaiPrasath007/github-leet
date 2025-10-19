@@ -1,0 +1,19 @@
+bool checkIfPangram(char* sentence)
+{
+    int i,test=1;
+    for(i=97;i<=122;i++)
+    {
+        char c=i;
+        if((strchr(sentence,c))!=NULL)
+            continue;
+        else
+        {
+            test=0;
+            break;
+        }
+    }
+    if(test==1)
+        return true;
+    else
+        return false;
+}
