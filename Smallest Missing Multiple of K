@@ -1,0 +1,22 @@
+int missingMultiple(int* nums, int numsize, int k)
+{
+    int i,j,test,r;
+    for(i=1;i<1000;i++)
+    {
+        test=1;
+        for(j=0;j<numsize;j++)
+        {
+            if(k*i==nums[j])
+            {
+                test=0;
+                break;
+            }
+        }
+        if(test==1)
+        {
+            r=k*i;
+            break;
+        }
+    }
+    return r;
+}
