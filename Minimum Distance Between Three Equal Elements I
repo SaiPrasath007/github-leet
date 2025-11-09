@@ -1,0 +1,29 @@
+int minimumDistance(int* nums, int numsize)
+{
+    int t[3];
+    int s=0,md=-1,d;
+    for(int i=0;i<numsize;i++)
+    {
+        s=0;
+        for(int j=i+1;j<numsize;j++)
+        {
+            if(nums[i]==nums[j])
+            {
+                if(s==0)
+                    t[0]=i;
+                s+=1;
+                t[s]=j;
+                if(s==2)
+                    break;
+            }
+        }
+        if(s==2)
+        {
+            d=abs(t[0] - t[1]) + abs(t[1] - t[2]) + abs(t[2] - t[0]);
+            if(md==-1||d<md)
+                md=d;
+        }
+            
+    }
+    return md;
+}
