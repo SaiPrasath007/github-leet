@@ -1,0 +1,34 @@
+int maximizeExpressionOfThree(int* nums, int numsize)
+{
+    int i,mx1,mx2,mn,j;
+    for(i=0;i<numsize;i++)
+    {
+        if(i==0)
+        {
+            mx1=nums[i];
+            mn=nums[i];
+            j=i;
+        }
+        if(nums[i]<mn)
+            mn=nums[i];
+        if(nums[i]>mx1)
+        {
+            mx1=nums[i];
+            j=i;
+        }
+    }
+    for(int k=0;k<numsize;k++)
+        {
+            if(k!=j)
+            {
+                mx2=nums[k];
+                break;
+            }
+        }
+    for(i=0;i<numsize;i++)
+    {
+        if(nums[i]>mx2 && i!=j)
+            mx2=nums[i];   
+    }
+    return (mx1+mx2)-mn;
+}
