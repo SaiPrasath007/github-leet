@@ -1,0 +1,22 @@
+long long sumAndMultiply(int n)
+{
+    int dig;
+    long long int y=0,x=0,sum=0;
+    while(n!=0)
+    {
+        dig=n%10;
+        if(dig!=0)
+        {
+            y=(y*10)+dig;
+        }
+        n/=10;
+    }
+    while(y!=0)
+    {
+        dig=y%10;
+        x=(x*10)+dig;
+        sum+=dig;
+        y/=10;
+    }
+    return x*sum;
+}
